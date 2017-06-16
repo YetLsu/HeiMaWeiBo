@@ -10,9 +10,13 @@
 
 @interface HWTabBar()
 @property (nonatomic, weak) UIButton *plusBtn;
+
+
+
 @end
 
 @implementation HWTabBar
+
 
 - (id)initWithFrame:(CGRect)frame
 {

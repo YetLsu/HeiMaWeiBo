@@ -68,7 +68,9 @@
 - (void)addChildVc:(UIViewController *)childVc title:(NSString *)title image:(NSString *)image selectedImage:(NSString *)selectedImage
 {
     // 设置子控制器的文字
-    childVc.title = title; // 同时设置tabbar和navigationBar的文字
+//    childVc.title = title; // 同时设置tabbar和navigationBar的文字
+    
+    childVc.tabBarItem.title = title;
     
     // 设置子控制器的图片
     childVc.tabBarItem.image = [UIImage imageNamed:image];
@@ -77,10 +79,13 @@
     // 设置文字的样式
     NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
     textAttrs[NSForegroundColorAttributeName] = HWColor(123, 123, 123);
+    
     NSMutableDictionary *selectTextAttrs = [NSMutableDictionary dictionary];
     selectTextAttrs[NSForegroundColorAttributeName] = [UIColor orangeColor];
+    
     [childVc.tabBarItem setTitleTextAttributes:textAttrs forState:UIControlStateNormal];
     [childVc.tabBarItem setTitleTextAttributes:selectTextAttrs forState:UIControlStateSelected];
+    
     
     // 先给外面传进来的小控制器 包装 一个导航控制器
     HWNavigationController *nav = [[HWNavigationController alloc] initWithRootViewController:childVc];
